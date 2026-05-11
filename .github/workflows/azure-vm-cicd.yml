@@ -1,4 +1,4 @@
-name: Production Python CI/CD to Azure VM
+name: Deploy python app on azure vm
 
 on:
   push:
