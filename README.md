@@ -85,6 +85,10 @@ The application directory and virtual environment were created using `sudo`, whi
 ```bash
 sudo chown -R azureuser:azureuser /opt/python-app
 ```
+NOTE :
+
+We have make this changes inside azure VM. We run the above command with our username which is kunal. We dont modify the script code.
+
 -------------------------------------------------------------------------------------
 
 # Key Learnings
