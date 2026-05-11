@@ -46,25 +46,6 @@ After successful testing:
 
 ---
 
-# Project Structure
-
-│
-├── .github/workflows
-   |- azure-vm-cicd.yml
-|   
-├── app
-   |- __init__.py
-   |- main.py
-|
-├── scripts
-   |- deploy.sh
-|
-├── tests
-   |- test_main.py
-|   
-├── requirements.txt
-└── README.md
-
 ---------------------------------------------------------------------------------
 
 # GitHub Actions Features Used
