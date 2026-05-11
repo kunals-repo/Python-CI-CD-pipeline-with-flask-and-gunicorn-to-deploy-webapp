@@ -1,8 +1,7 @@
 name: Deploy python app on azure vm
 
 on:
-  push:
-  workflow_dispatch: 
+
 
 jobs:
 
