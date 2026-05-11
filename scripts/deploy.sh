@@ -11,7 +11,7 @@ if [ ! -d "$APP_DIR" ]; then
     sudo chown -R $USER:$USER $APP_DIR
 fi
 
-sudo cp -r * $APP_DIR
+rsync -av --delete ./ $APP_DIR
 
 cd $APP_DIR
 
