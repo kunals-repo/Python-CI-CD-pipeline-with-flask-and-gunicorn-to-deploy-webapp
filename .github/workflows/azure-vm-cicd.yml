@@ -2,16 +2,12 @@ name: Production Python CI/CD to Azure VM
 
 on:
   push:
-    branches:
-      - main
-
   workflow_dispatch: 
 
-env:
-  APP_NAME: python-prod-app
-
 jobs:
-    name: build and test
+
+  build-and-test:
+    name: Build and Test
     runs-on: ubuntu-latest
 
     strategy:
@@ -39,16 +35,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Lint quality checks
+      - name: Run Lint Checks
         run: flake8 app/main.py
+        
 
-      - name: Run Unit test functionality
-        run: PYTHONPATH=. pytest app/main.py
+      - name: Run Unit Tests
+        run: PYTHONPATH=. pytest tests/test_main.py
+         
 
   deploy:
-    name: Deploy to Azure VM
+    name: Deploy to azure vm
     runs-on: ubuntu-latest
-    needs: build and test
+    needs: build-and-test
 
 
     steps:
@@ -56,7 +54,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Copy files to Azure VM
+      - name: Copy Files to Azure VM
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.VM_HOST }}
@@ -65,7 +63,7 @@ jobs:
           source: "."
           target: "/home/${{ secrets.VM_USERNAME }}/app"
 
-      - name: Execute deployment commands on VM
+      - name: Execute Deployment Commands on VM
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VM_HOST }}
