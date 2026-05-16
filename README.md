@@ -36,15 +36,6 @@ After successful testing:
 
 --------------------------------------------------------------
 
-# Application Features
-
-* Flask REST API
-* Health check endpoint
-* Addition API endpoint
-* Automated testing
-* Production deployment using Gunicorn
-
----
 
 ---------------------------------------------------------------------------------
 
